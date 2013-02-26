@@ -2,5 +2,8 @@
 
 x.x (mm/dd/yyyy):
 
+1.1 (02/26/2013):
+ - rewrote much of the dropdown using jQuery to get around the overflow insanity
+
 1.0 (02/14/2013):
  - Initial Release

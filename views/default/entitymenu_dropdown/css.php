@@ -1,42 +1,33 @@
 
-.elgg-menu-item-entitymenu-dropdown:hover ul {
-  display: block;
-}
-
-.elgg-menu-item-entitymenu-dropdown:hover a span.elgg-icon-round-plus {
-  background-position: 0 -864px;
-}
-
-.elgg-menu-item-entitymenu-dropdown a span.elgg-icon-round-plus {
-  vertical-align: top;
-}
-
-.elgg-menu-item-entitymenu-dropdown a {
-  text-decoration: none;
-}
-
-.elgg-list .elgg-body {
-  overflow: visible;
-}
-
-
 /** Dropdown Styles **/
 
 .elgg-menu .elgg-menu-item-entitymenu-dropdown .entitymenu-dropdown {
-  padding: 2px;
   background-color: #003368;
+  padding: 3px;
   border-radius: 5px;
-  color: white;
 }
 
-
-.elgg-menu .elgg-menu-item-entitymenu-dropdown:hover .entitymenu-dropdown {
+.elgg-menu .elgg-menu-item-entitymenu-dropdown .entitymenu-dropdown.active {
   background-color: #B93D21;
+}
+
+.entitymenu-dropdown.active span.elgg-icon-round-plus {
+  background-position: 0 -864px;
+}
+
+.elgg-menu .elgg-menu-item-entitymenu-dropdown a.entitymenu-dropdown {
+  color: white;
+  text-decoration: none;
 }
 
 .elgg-menu-item-entitymenu-dropdown ul {
   display: none;
+}
+
+#au-sets-hover-menu {
   position: absolute;
+  display: inline-block;
+  padding: 4px;
   background-color: white;
   z-index: 100;
   border-radius: 5px;
@@ -44,7 +35,6 @@
   min-width: 80px;
 }
 
-
-.elgg-menu-item-entitymenu-dropdown ul li {
-  padding: 3px;
+#au-sets-hover-menu ul li {
+  list-style-type: none;
 }
