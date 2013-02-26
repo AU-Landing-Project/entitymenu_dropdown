@@ -1,6 +1,6 @@
 <?php
 
-$default = 'access, au_sets_pin, delete, ical_export, likes';
+$default = 'access, au_sets_pin, delete, ical_export, likes, published_status, export, download, views';
 
 echo elgg_echo('entitymenu_dropdown:ignore') . '<br>';
 

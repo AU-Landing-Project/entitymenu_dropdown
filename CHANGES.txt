@@ -4,6 +4,8 @@ x.x (mm/dd/yyyy):
 
 1.1 (02/26/2013):
  - rewrote much of the dropdown using jQuery to get around the overflow insanity
+ - adds additional exemptions to the default ignore list
+ - increased z-index to overlay default lightboxes
 
 1.0 (02/14/2013):
  - Initial Release

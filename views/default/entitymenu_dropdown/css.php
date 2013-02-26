@@ -29,7 +29,7 @@
   display: inline-block;
   padding: 4px;
   background-color: white;
-  z-index: 100;
+  z-index: 1500;
   border-radius: 5px;
   border: 2px solid #B93D21;
   min-width: 80px;
