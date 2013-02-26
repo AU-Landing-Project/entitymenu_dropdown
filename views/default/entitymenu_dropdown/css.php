@@ -38,3 +38,7 @@
 #au-sets-hover-menu ul li {
   list-style-type: none;
 }
+
+ul.elgg-menu-entity {
+  height: auto;
+}

@@ -15,7 +15,7 @@ function entitymenu_dropdown_registration($hook, $type, $return, $params) {
 	if (!$ENTITYMENU_DROPDOWN_BYPASS_ARRAY) {
 	  $bypass = elgg_get_plugin_setting('bypass', 'entitymenu_dropdown');
 	  if (!$bypass) {
-		$bypass = 'access, au_sets_pin, delete, download, export, ical_export, likes, published_status, views';
+		$bypass = 'access, au_sets_pin, delete, download, export, ical_export, likes, published_status, tagging, views';
 	  }
 	  $ENTITYMENU_DROPDOWN_BYPASS_ARRAY = explode(',', $bypass);
 	  foreach ($ENTITYMENU_DROPDOWN_BYPASS_ARRAY as $key => $name) {
