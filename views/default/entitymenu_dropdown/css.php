@@ -24,7 +24,7 @@
   display: none;
 }
 
-#au-sets-hover-menu {
+#entitymenu-dropdown-menu {
   position: absolute;
   display: inline-block;
   padding: 4px;
@@ -35,7 +35,7 @@
   min-width: 80px;
 }
 
-#au-sets-hover-menu ul li {
+#entitymenu-dropdown-menu ul li {
   list-style-type: none;
 }
 

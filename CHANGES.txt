@@ -2,6 +2,9 @@
 
 x.x (mm/dd/yyyy):
 
+1.2 (03/04/2013):
+ - fixes error where sometimes dropdown inner html gets misplaced
+
 1.1 (02/26/2013):
  - rewrote much of the dropdown using jQuery to get around the overflow insanity
  - adds additional exemptions to the default ignore list
