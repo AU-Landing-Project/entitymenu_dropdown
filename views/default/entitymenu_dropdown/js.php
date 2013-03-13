@@ -11,7 +11,7 @@ elgg.entitymenu_dropdown.init = function() {
   // global holding the currently active parent
   elgg.entitymenu_dropdown.parent = false;
 
-  $('.elgg-menu-item-entitymenu-dropdown').live('mouseenter click', function(e) {
+  $('.elgg-menu-entity .elgg-menu-item-entitymenu-dropdown').live('mouseenter click', function(e) {
 	e.preventDefault();
 	
 	var entity = $(this).children('ul').eq(0);
@@ -55,6 +55,10 @@ elgg.entitymenu_dropdown.init = function() {
 }
 
 elgg.entitymenu_dropdown.hovercheck = function() {
+  if (!elgg.entitymenu_dropdown.parent) {
+	return;
+  }
+
   if (elgg.entitymenu_dropdown.parent.is(':hover')) {
 	console.log('parent hover');
   }

@@ -36,7 +36,7 @@ function entitymenu_dropdown_registration($hook, $type, $return, $params) {
 	
 	// at this point we know we have items to group in a dropdown
 	// create our parent
-	$text = elgg_echo('entitymenu_dropdown:options') . '<span class="elgg-icon elgg-icon-round-plus"></span>';
+	$text = elgg_echo('entitymenu_dropdown:options') . ' &#9660;';// . '<span class="elgg-icon elgg-icon-round-plus"></span>';
 	$parent = new ElggMenuItem('entitymenu_dropdown', $text, '#');
 	$parent->addLinkClass('entitymenu-dropdown');
 	$parent->setPriority(1000);

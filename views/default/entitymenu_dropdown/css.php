@@ -2,13 +2,8 @@
 /** Dropdown Styles **/
 
 .elgg-menu .elgg-menu-item-entitymenu-dropdown .entitymenu-dropdown {
-  background-color: #003368;
   padding: 3px;
   border-radius: 5px;
-}
-
-.elgg-menu .elgg-menu-item-entitymenu-dropdown .entitymenu-dropdown.active {
-  background-color: #B93D21;
 }
 
 .entitymenu-dropdown.active span.elgg-icon-round-plus {
@@ -16,7 +11,6 @@
 }
 
 .elgg-menu .elgg-menu-item-entitymenu-dropdown a.entitymenu-dropdown {
-  color: white;
   text-decoration: none;
 }
 
