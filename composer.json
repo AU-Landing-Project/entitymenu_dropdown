@@ -1,0 +1,20 @@
+{
+    "name": "au/entitymenu_dropdown",
+    "type": "elgg-plugin",
+    "description": "Turns an overcrowded entity menu into a neat dropdown",
+    "homepage": "https://github.com/AU-Landing-Project/entitymenu_dropdown",
+    "keywords": ["elgg", "plugin", "spam", "captcha", "recaptcha"],
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Matt Beckett"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/AU-Landing-Project/entitymenu_dropdown/issues"
+    },
+    "require": {
+        "php": ">=5.4",
+        "composer/installers": ">=1.0.8"
+    }
+}
