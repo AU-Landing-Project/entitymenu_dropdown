@@ -1,56 +1,90 @@
 <?php
 
-function entitymenu_dropdown_init() {
-  elgg_extend_view('css/elgg', 'entitymenu_dropdown/css');
-  elgg_extend_view('js/elgg', 'entitymenu_dropdown/js');
-  elgg_register_plugin_hook_handler('register', 'menu:entity', 'entitymenu_dropdown_registration', 9999);
+namespace AU\EntityMenuDropdown;
+
+const PLUGIN_ID = 'entitymenu_dropdown';
+
+elgg_register_event_handler('init', 'system', __NAMESPACE__ . '\\init');
+
+/**
+ *	Init 
+ */
+function init() {
+	elgg_extend_view('css/elgg', 'css/entitymenu_dropdown');
+	elgg_extend_view('js/elgg', 'js/entitymenu_dropdown');
+
+	elgg_register_plugin_hook_handler('register', 'menu:entity', __NAMESPACE__ . '\\entity_menu', 9999);
 }
 
-
-function entitymenu_dropdown_registration($hook, $type, $return, $params) {
-  if (is_array($return) && count($return) > 1) {
-
-	static $ENTITYMENU_DROPDOWN_BYPASS_ARRAY;
+/**
+ * reorder entity menu items into a dropdown
+ * 
+ * @param type $hook
+ * @param type $type
+ * @param array $return
+ * @param type $params
+ * @return \ElggMenuItem
+ */
+function entity_menu($hook, $type, $return, $params) {
 	
-	if (!$ENTITYMENU_DROPDOWN_BYPASS_ARRAY) {
-	  $bypass = elgg_get_plugin_setting('bypass', 'entitymenu_dropdown');
-	  if (!$bypass) {
-		$bypass = 'access, au_sets_pin, delete, download, export, ical_export, likes, published_status, tagging, views';
-	  }
-	  $ENTITYMENU_DROPDOWN_BYPASS_ARRAY = explode(',', $bypass);
-	  foreach ($ENTITYMENU_DROPDOWN_BYPASS_ARRAY as $key => $name) {
-		$ENTITYMENU_DROPDOWN_BYPASS_ARRAY[$key] = trim($name);
-	  }
+	if (!is_array($return)) {
+		return $return;
 	}
+
+	if (count($return) <= 1) {
+		return $return;
+	}
+	
+	$bypass = get_bypass_array();
 
 	$children = array(); // this will record the keys that will get moved to children items
 	foreach ($return as $key => $link) {
-	  if ($link->inContext() && !in_array($link->getName(), $ENTITYMENU_DROPDOWN_BYPASS_ARRAY)) {
-		$children[] = $key;
-	  }
+		if ($link->inContext() && !in_array($link->getName(), $bypass)) {
+			$children[] = $key;
+		}
 	}
-	
+
 	if (count($children) <= 1) {
-	  return $return;
+		return $return;
 	}
-	
+
 	// at this point we know we have items to group in a dropdown
 	// create our parent
-	$text = elgg_echo('entitymenu_dropdown:options') . ' &#9660;';// . '<span class="elgg-icon elgg-icon-round-plus"></span>';
-	$parent = new ElggMenuItem('entitymenu_dropdown', $text, '#');
+	$text = elgg_echo('entitymenu_dropdown:options') . ' &#9660;';
+	$parent = new \ElggMenuItem('entitymenu_dropdown', $text, '#');
 	$parent->addLinkClass('entitymenu-dropdown');
 	$parent->setPriority(1000);
-	
+
 	foreach ($children as $key) {
-	  $parent->addChild($return[$key]);
-	  unset($return[$key]);
+		$parent->addChild($return[$key]);
+		unset($return[$key]);
 	}
-	
+
 	$return[] = $parent;
-  }
-  
-  return $return;
+
+	return $return;
 }
 
-
-elgg_register_event_handler('init', 'system', 'entitymenu_dropdown_init');
+/**
+ * get our bypass settings cached
+ * 
+ * @staticvar type $bypass_array
+ * @return type
+ */
+function get_bypass_array() {
+	static $bypass_array;
+	
+	if ($bypass_array) {
+		return $bypass_array;
+	}
+	
+	$bypass = elgg_get_plugin_setting('bypass', PLUGIN_ID);
+	if (!$bypass) {
+		$bypass = 'access, au_sets_pin, delete, download, export, ical_export, likes, published_status, tagging, views';
+	}
+	
+	$bypass_array = explode(',', $bypass);
+	array_walk($bypass_array, function($v) { return trim($v); });
+	
+	return $bypass_array;
+}

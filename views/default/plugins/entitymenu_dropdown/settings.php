@@ -1,8 +1,10 @@
 <?php
 
+namespace AU\EntityMenuDropdown;
+
 $default = 'access, au_sets_pin, delete, ical_export, likes, published_status, export, download, tagging, views';
 
-echo elgg_echo('entitymenu_dropdown:ignore') . '<br>';
+echo '<label>' . elgg_echo('entitymenu_dropdown:ignore') . '</label>';
 
 echo elgg_view('input/text', array(
 	'name' => 'params[bypass]',
