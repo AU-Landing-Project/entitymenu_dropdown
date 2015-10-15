@@ -84,6 +84,7 @@ function get_bypass_array() {
 	}
 	
 	$bypass_array = explode(',', $bypass);
-
-	return array_map('trim', $bypass_array);
+	$bypass_array = array_map('trim', $bypass_array);
+	
+	return $bypass_array;
 }

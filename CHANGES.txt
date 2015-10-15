@@ -2,6 +2,9 @@
 
 x.x (mm/dd/yyyy):
 
+1.4.2 (10/15/2015):
+ - fix exemption list cache for subsequent menus
+
 1.4.1 (10/15/2015):
  - fix trim function for dropdown exemption list
  - update default setting for 'like' instead of 'likes'
