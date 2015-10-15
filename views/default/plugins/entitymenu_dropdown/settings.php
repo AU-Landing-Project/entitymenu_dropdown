@@ -2,7 +2,7 @@
 
 namespace AU\EntityMenuDropdown;
 
-$default = 'access, au_sets_pin, delete, ical_export, likes, published_status, export, download, tagging, views';
+$default = 'access, au_sets_pin, delete, ical_export, like, published_status, export, download, tagging, views';
 
 echo '<label>' . elgg_echo('entitymenu_dropdown:ignore') . '</label>';
 

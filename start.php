@@ -80,11 +80,10 @@ function get_bypass_array() {
 	
 	$bypass = elgg_get_plugin_setting('bypass', PLUGIN_ID);
 	if (!$bypass) {
-		$bypass = 'access, au_sets_pin, delete, download, export, ical_export, likes, published_status, tagging, views';
+		$bypass = 'access, au_sets_pin, delete, download, export, ical_export, like, published_status, tagging, views';
 	}
 	
 	$bypass_array = explode(',', $bypass);
-	array_walk($bypass_array, function($v) { return trim($v); });
-	
-	return $bypass_array;
+
+	return array_map('trim', $bypass_array);
 }

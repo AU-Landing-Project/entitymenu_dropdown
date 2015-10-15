@@ -2,7 +2,11 @@
 
 x.x (mm/dd/yyyy):
 
-1.4 (10/13/2015):
+1.4.1 (10/15/2015):
+ - fix trim function for dropdown exemption list
+ - update default setting for 'like' instead of 'likes'
+
+1.4.0 (10/13/2015):
  - upgrade for Elgg 1.9+
  - code cleanup
 
