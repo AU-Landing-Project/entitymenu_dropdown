@@ -26,6 +26,14 @@ function init() {
  * @return \ElggMenuItem
  */
 function entity_menu($hook, $type, $return, $params) {
+	static $show_names;
+	
+	if (!$show_names && $show_name !== 0 && elgg_is_admin_logged_in()) {
+		$show_names = (int) elgg_get_plugin_setting('show_names', PLUGIN_ID);
+	}
+	else {
+		$show_names = 0;
+	}
 	
 	if (!is_array($return)) {
 		return $return;
@@ -38,7 +46,9 @@ function entity_menu($hook, $type, $return, $params) {
 	$bypass = get_bypass_array();
 
 	$children = array(); // this will record the keys that will get moved to children items
+	$names = array();
 	foreach ($return as $key => $link) {
+		$names[] = $link->getName();
 		if ($link->inContext() && !in_array($link->getName(), $bypass)) {
 			$children[] = $key;
 		}
@@ -61,6 +71,11 @@ function entity_menu($hook, $type, $return, $params) {
 	}
 
 	$return[] = $parent;
+	
+	if ($show_names) {
+		echo '<div class="entitymenu-shownames">' . implode(" | ", $names) . '</div>';
+		echo '<div class="clearfloat"></div>';
+	}
 
 	return $return;
 }
@@ -71,7 +86,7 @@ function entity_menu($hook, $type, $return, $params) {
  * @staticvar type $bypass_array
  * @return type
  */
-function get_bypass_array() {
+function get_bypass_array($default = false) {
 	static $bypass_array;
 	
 	if ($bypass_array) {
@@ -79,8 +94,8 @@ function get_bypass_array() {
 	}
 	
 	$bypass = elgg_get_plugin_setting('bypass', PLUGIN_ID);
-	if (!$bypass) {
-		$bypass = 'access, au_sets_pin, delete, download, export, ical_export, like, published_status, tagging, views';
+	if (is_null($bypass) || $default) {
+		$bypass = 'access, delete, download, edit, export, like, published_status, unlike';
 	}
 	
 	$bypass_array = explode(',', $bypass);

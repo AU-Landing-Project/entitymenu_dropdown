@@ -2,6 +2,11 @@
 
 x.x (mm/dd/yyyy):
 
+1.5.0 (10/20/2015):
+ - changed default exclusion list value to core names only
+ - added menu item name inspector
+ - can now set no items for exclusion
+
 1.4.2 (10/15/2015):
  - fix exemption list cache for subsequent menus
 

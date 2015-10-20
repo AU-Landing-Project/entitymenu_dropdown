@@ -36,3 +36,12 @@
 ul.elgg-menu-entity {
   height: auto;
 }
+
+.entitymenu-shownames {
+	padding: 3px;
+	margin: 3px 0;
+	border: 1px solid #cccccc;
+	display: inline-block;
+	float: right;
+}
+
