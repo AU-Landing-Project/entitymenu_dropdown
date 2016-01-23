@@ -10,8 +10,8 @@ elgg_register_event_handler('init', 'system', __NAMESPACE__ . '\\init');
  *	Init 
  */
 function init() {
-	elgg_extend_view('css/elgg', 'css/entitymenu_dropdown');
-	elgg_extend_view('js/elgg', 'js/entitymenu_dropdown');
+	elgg_extend_view('css/elgg.css', 'css/entitymenu_dropdown.css');
+	elgg_extend_view('js/elgg', 'js/entitymenu_dropdown.js');
 
 	elgg_register_plugin_hook_handler('register', 'menu:entity', __NAMESPACE__ . '\\entity_menu', 9999);
 }

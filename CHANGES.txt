@@ -2,6 +2,10 @@
 
 x.x (mm/dd/yyyy):
 
+2.0.0 (01/21/2016):
+ - update for Elgg 2.0
+ - dropdown now only works on click for mobile compatibility
+
 1.5.0 (10/20/2015):
  - changed default exclusion list value to core names only
  - added menu item name inspector

@@ -3,7 +3,7 @@
     <name>Entity Menu Dropdown</name>
     <id>entitymenu_dropdown</id>
     <author>Matt Beckett</author>
-    <version>1.5.0</version>
+    <version>2.0.0</version>
     <description>Turns an overcrowded entity menu into a neat dropdown</description>
     <website>https://landing.athabascau.ca</website>
     <copyright>(C) Matt Beckett 2012</copyright>
@@ -11,6 +11,6 @@
 	
     <requires>
         <type>elgg_release</type>
-        <version>1.9</version>
+        <version>2.0</version>
     </requires>
 </plugin_manifest>
